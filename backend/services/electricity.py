@@ -83,8 +83,10 @@ class Electricity:
         """
         Calculates the price of buying and selling energy to/from the grid.
         """
-        self.grid_price = (self.energy_cost["Euro"].mean() * 1.20) + self.GRID_FEE
-        self.grid_sell_price = self.energy_cost["Euro"].mean() * 0.80
+        energy_cost_kwh = self.energy_cost["Euro"].mean() / 1000
+        logger.info(f"energy_cost_kwh {energy_cost_kwh}")
+        self.grid_price = (energy_cost_kwh * 1.20) + self.GRID_FEE
+        self.grid_sell_price = energy_cost_kwh * 0.80
 
     async def calculate_total_cost(self, annual_energy_consumption: float, wp_of_installation: int) -> float:
         """
