@@ -109,7 +109,7 @@
     
 6.  Once the dependencies are installed, you can start the API server by running the following command:
     
-    `uvicorn backend.main:app --host 0.0.0.0 --port 8000` 
+    `uvicorn backend.main:app --port 8000` 
     
     This command will start the API server and make it accessible at `http://localhost:8000`.
     
